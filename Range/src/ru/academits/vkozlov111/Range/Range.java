@@ -17,5 +17,23 @@ class Range {
         return ((isInsideNumber >= this.from) && (isInsideNumber <= this.to));
     }
 
+    /*public Range getIntersection(Range range1, Range range2) {
+        Range range3 = new Range();
+
+        if (range1.from <= range2.from)  {
+        range3.from = range2.from}
+        else if ((range1.from >= range2.from) && (range1.from <= range2.to)) {
+        range3.from = range1.from}
+        else if (range1.from >= range2.to) {
+        range3.from = null}
+
+        }
+
+
+        return range3;
+    }
+    */
+
+
 }
 
