@@ -4,7 +4,7 @@ class Range {
     private double from;
     private double to;
 
-    Range(double from, double to) {
+    public Range(double from, double to) {
         if (from > to) {
             System.out.println("'from' не может быть меньше 'to'");
         } else {
@@ -13,11 +13,11 @@ class Range {
         }
     }
 
-    double getFrom() {
+    public double getFrom() {
         return this.from;
     }
 
-    double getTo() {
+    public double getTo() {
         return this.to;
     }
 
@@ -29,7 +29,7 @@ class Range {
         return ((isInsideNumber >= this.from) && (isInsideNumber <= this.to));
     }
 
-    Range getIntersection(Range inputRange) {
+    public Range getIntersection(Range inputRange) {
         Range intersectionOfRanges = new Range(from, to);
 
         if ((this.from > inputRange.to) || (this.to < inputRange.from)) {
@@ -49,4 +49,22 @@ class Range {
         }
         return intersectionOfRanges;
     }
+
+    public Range[] getCombinationOfRanges(Range inputRange) {
+        Range combinationOfRanges[] = new Range[2];
+
+        if (this.to < inputRange.from) {
+            combinationOfRanges[0] = this;
+            combinationOfRanges[1] = inputRange;
+        } else if ((this.to >= inputRange.from) && (this.to <= inputRange.to)) {
+            combinationOfRanges[0] = new Range(this.from, inputRange.to);
+            combinationOfRanges[1] = null;
+        } else if ((this.to >= inputRange.from) && (this.to <= inputRange.to)) {
+            combinationOfRanges[0] = new Range(this.from, inputRange.to);
+            combinationOfRanges[1] = null;
+
+        }
+        return combinationOfRanges;
+    }
+
 }
