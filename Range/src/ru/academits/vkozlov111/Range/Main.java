@@ -20,6 +20,5 @@ public class Main {
         System.out.println("Введите число для проверки принадлежности интервалу:");
         double isInsideNumber = scanner.nextDouble();
         System.out.println("Число " + isInsideNumber + ((range.isInside(isInsideNumber) ? "" : " не") + " принадлежит интервалу"));
-
     }
 }
