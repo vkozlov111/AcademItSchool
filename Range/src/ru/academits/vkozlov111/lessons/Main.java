@@ -1,4 +1,6 @@
-package ru.academits.vkozlov111.Range;
+package ru.academits.vkozlov111.lessons;
+
+import ru.academits.vkozlov111.classes.Range;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -19,15 +21,10 @@ public class Main {
         double isInsideNumber = scanner.nextDouble();
         System.out.println("Число " + isInsideNumber + ((firstRange.isInside(isInsideNumber) ? "" : " не") + " принадлежит интервалу"));
 */
-        double startPoint = 0;
-        double endPoint = 10;
-        Range firstRange = new Range(startPoint, endPoint);
+        Range firstRange = new Range(0, 10);
 
         System.out.println("Введите первое и последнее число второго интервала: ");
-        double secondStartPoint = scanner.nextDouble();
-        double secondEndPoint = scanner.nextDouble();
-
-        Range secondRange = new Range(secondStartPoint, secondEndPoint);
+        Range secondRange = new Range(scanner.nextDouble(), scanner.nextDouble());
         Range intersectionOfRanges = firstRange.getIntersection(secondRange);
 
         if (intersectionOfRanges != null) {
