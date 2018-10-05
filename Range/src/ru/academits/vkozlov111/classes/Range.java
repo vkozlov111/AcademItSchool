@@ -29,30 +29,6 @@ public class Range {
         return ((number >= this.from) && (number <= this.to));
     }
 
-    private double getMaxFromArray(double array[]) {
-
-        double maximum = array[0];
-
-        for (double e : array) {
-            if (maximum < e) {
-                maximum = e;
-            }
-        }
-        return maximum;
-    }
-
-    private double getMinFromArray(double array[]) {
-
-        double minimum = array[0];
-
-        for (double e : array) {
-            if (minimum > e) {
-                minimum = e;
-            }
-        }
-        return minimum;
-    }
-
     private static double[] getSortedArray(double[] a) {
 
         for (int i = 0; i < a.length - 1; i++) {
@@ -99,7 +75,7 @@ public class Range {
         return new Range(intersectionFrom, intersectionTo);
     }
 
-    public Range[] getCombinationOfRanges(Range range) {
+    public Range[] getCombination(Range range) {
 
         double firstFrom = this.from;
         double firstTo = this.to;
@@ -108,21 +84,12 @@ public class Range {
 
         double[] newArray = {firstFrom, firstTo, secondFrom, secondTo};
         double[] sortedArray = getSortedArray(newArray);
-        //Range[] arrayRange = new Range[2];
 
-  /*
         if ((secondTo < firstFrom) || (secondFrom > firstTo)) {
-            Range[] arrayRange = {new Range(sortedArray[0], sortedArray[1]), new Range(sortedArray[2], sortedArray[3])};
+            return new Range[]{new Range(sortedArray[0], sortedArray[1]), new Range(sortedArray[2], sortedArray[3])};
         } else {
-            Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
+            return new Range[]{new Range(sortedArray[0], sortedArray[3])};
         }
-*/
-        //Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
-
-        //return Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
-        //return {(new Range(1, 2)), (new Range(1, 2))};
-
-
     }
 
 }

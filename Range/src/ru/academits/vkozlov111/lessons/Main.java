@@ -22,14 +22,21 @@ public class Main {
         System.out.println("Число " + isInsideNumber + ((firstRange.isInside(isInsideNumber) ? "" : " не") + " принадлежит интервалу"));
 */
         Range firstRange = new Range(0, 10);
-
         System.out.println("Введите первое и последнее число второго интервала: ");
         Range secondRange = new Range(scanner.nextDouble(), scanner.nextDouble());
+
         Range intersectionOfRanges = firstRange.getIntersection(secondRange);
 
         if (intersectionOfRanges != null) {
             System.out.println("Начало и конец пересечения: " + intersectionOfRanges.getFrom() + " " + intersectionOfRanges.getTo());
         } else System.out.println("Для данных интервалов пересечения не существует");
+
+        Range[] combinationOfRanges = firstRange.getCombination(secondRange);
+
+        System.out.print("Сумма двух интервалов: ");
+        for (Range e: combinationOfRanges){
+            System.out.print("начало "+ e.getFrom()+ "   конец "+e.getTo()+ "   ");
+        }
 
     }
 }
