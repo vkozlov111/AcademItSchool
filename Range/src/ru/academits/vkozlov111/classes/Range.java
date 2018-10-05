@@ -53,6 +53,25 @@ public class Range {
         return minimum;
     }
 
+    private static double[] getSortedArray(double[] a) {
+
+        for (int i = 0; i < a.length - 1; i++) {
+
+            double minimum = a[i];
+            int indexMinimum = i;
+
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < minimum) {
+                    minimum = a[j];
+                    indexMinimum = j;
+                }
+            }
+            a[indexMinimum] = a[i];
+            a[i] = minimum;
+        }
+        return a;
+    }
+
     public Range getIntersection(Range range) {
 
         double intersectionFrom;
@@ -80,24 +99,30 @@ public class Range {
         return new Range(intersectionFrom, intersectionTo);
     }
 
-    /*public Range[] getCombinationOfRanges(Range range) {
-
-        double[] array = {this.from, this.to, range.from, range.to};
+    public Range[] getCombinationOfRanges(Range range) {
 
         double firstFrom = this.from;
         double firstTo = this.to;
         double secondFrom = range.from;
         double secondTo = range.to;
 
-        if ((secondTo < firstFrom) && (secondFrom > firstTo)) {
+        double[] newArray = {firstFrom, firstTo, secondFrom, secondTo};
+        double[] sortedArray = getSortedArray(newArray);
+        //Range[] arrayRange = new Range[2];
 
+  /*
+        if ((secondTo < firstFrom) || (secondFrom > firstTo)) {
+            Range[] arrayRange = {new Range(sortedArray[0], sortedArray[1]), new Range(sortedArray[2], sortedArray[3])};
+        } else {
+            Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
         }
+*/
+        //Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
 
-        double combinationFrom = getMinFromArray(array);
-        double combinationTo = getMaxFromArray(array);
+        //return Range[] arrayRange = {new Range(sortedArray[0], sortedArray[3])};
+        //return {(new Range(1, 2)), (new Range(1, 2))};
 
-        //return new Range(combinationFrom, combinationTo);
 
-    }*/
+    }
 
 }
